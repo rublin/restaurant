@@ -1,0 +1,14 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://horton.elephantsql.com:5432/yqxjrici
+    username: yqxjrici
+    password: NvR2E63ySSDw5BiJRfl0RZgqpK0W-8-0
+    driver-class-name: org.postgresql.Driver
+    platform: postgresql
+
+#   for the first start only
+  flyway:
+    baseline-on-migrate: true
+server:
+  port: 8095
