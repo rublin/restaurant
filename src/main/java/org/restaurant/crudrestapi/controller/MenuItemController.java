@@ -45,6 +45,11 @@ public class MenuItemController {
         return itemService.get(page, size);
     }
 
+    @GetMapping("/menu/items/search")
+    public List<MenuItem> findByName(@RequestParam @NotNull String name) {
+        return itemService.find(name);
+    }
+
     @DeleteMapping("/menu/items/{id}")
     public ResponseEntity delete(@PathVariable("id") Integer id) {
         itemService.delete(id);

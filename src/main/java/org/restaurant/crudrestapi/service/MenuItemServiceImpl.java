@@ -44,4 +44,9 @@ public class MenuItemServiceImpl implements MenuItemService {
     public void delete(Integer id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public List<MenuItem> find(String name) {
+        return Lists.newArrayList(repository.findByNameIgnoreCaseContaining(name));
+    }
 }

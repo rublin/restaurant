@@ -12,4 +12,6 @@ public interface MenuItemService {
     MenuItem save(MenuItem item);
 
     void delete(Integer id);
+
+    List<MenuItem> find(String name);
 }
