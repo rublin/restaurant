@@ -25,8 +25,8 @@ public class MenuItemController {
     private final MenuItemService itemService;
 
     @PostMapping("/menu/items")
-    public MenuItem create(@Valid @RequestBody MenuItem item) {
-        return itemService.save(item);
+    public ResponseEntity<MenuItem> create(@Valid @RequestBody MenuItem item) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(itemService.save(item));
     }
 
     @PutMapping("/menu/items/{id}")
