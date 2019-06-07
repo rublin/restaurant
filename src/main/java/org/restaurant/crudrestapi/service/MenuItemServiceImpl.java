@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.restaurant.crudrestapi.model.MenuItem;
 import org.restaurant.crudrestapi.repository.MenuItemRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,8 +29,10 @@ public class MenuItemServiceImpl implements MenuItemService {
     }
 
     @Override
-    public List<MenuItem> get() {
-        return Lists.newArrayList(repository.findAll());
+    public List<MenuItem> get(int page, int size) {
+        Pageable pageRequest = PageRequest.of(page, size);
+        Page<MenuItem> pages = repository.findAll(pageRequest);
+        return Lists.newArrayList(pages);
     }
 
     @Override

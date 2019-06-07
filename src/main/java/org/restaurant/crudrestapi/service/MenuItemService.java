@@ -7,7 +7,7 @@ import java.util.List;
 public interface MenuItemService {
     MenuItem get(Integer id);
 
-    List<MenuItem> get();
+    List<MenuItem> get(int page, int size);
 
     MenuItem save(MenuItem item);
 
